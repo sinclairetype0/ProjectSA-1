@@ -5,18 +5,20 @@
  */
 package sudoku4x4;
 
+import javafx.util.Pair;
+
 /**
  *
  * 
  */
 public class Sudoku4x4 {
-     int[][] kotak = {{1, 0, 0, 0},
+     static int[][] kotak = {{1, 0, 0, 0},
                       {0, 2, 0, 0},
                       {0, 0, 3, 0},
                       {0, 0, 0, 4}
         };
      
-      boolean ada_kosong(){
+      static boolean ada_kosong(){
         boolean ada = false;
         for(int i=0;i<4;i++){
             for(int j=0;j<4;j++){
@@ -28,6 +30,24 @@ public class Sudoku4x4 {
         }
         return ada;
     }
+      
+      static Pair<Integer, Integer> cari_posisi_kosong() {
+        int x, y;
+        Pair<Integer, Integer> posisi = new Pair(0, 0);
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                if (kotak[i][j] == 0) {
+                    x = i;
+                    y = j;
+                    posisi = new Pair(i, j);
+                    return posisi;
+                }
+            }
+        }
+        return posisi;
+    }
+      
+      
 
     /**
      * @param args the command line arguments

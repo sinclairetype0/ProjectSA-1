@@ -20,7 +20,8 @@ public class Sudoku4x4 {
     {0, 0, 3, 0},
     {0, 0, 0, 4}
     };
-
+    
+    //Mencari kotak kosong
     static boolean ada_kosong() {
         boolean ada = false;
         for (int i = 0; i < 4; i++) {
@@ -49,6 +50,38 @@ public class Sudoku4x4 {
         }
         return posisi;
     }
+    
+    //Cek nilai  dibagian baris
+    static boolean nilai_baris(int x, int y, int nilai) {
+
+        boolean memenuhi = true;
+        for (int i = 0; i < 4; i++) {
+            if (i == y) {
+                continue;
+            } else if (kotak[x][i] == nilai) {
+                memenuhi = false;
+                return memenuhi;
+            }
+        }
+        return memenuhi;
+    }
+    
+    //Cari posisi kotak
+    static int cari_kotak(int x, int y) {
+        int kot = 0;
+        if ((x >= 0 && x <= 1) && (y >= 0 && y <= 1)) {
+            kot = 1;
+        } else if ((x >= 0 && x <= 1) && (y >= 2 && y <= 3)) {
+            kot = 2;
+        } else if ((x >= 2 && x <= 3) && (y >= 0 && y <= 1)) {
+            kot = 3;
+        } else if ((x >= 2 && x <= 3) && (y >= 2 && y <= 3)) {
+            kot = 4;
+        }
+
+        return kot;
+    }
+
 
     static void cetak() {
         int i, j;

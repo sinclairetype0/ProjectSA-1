@@ -37,13 +37,10 @@ public class Sudoku4x4 {
 
     // Cari nilai  x & y (x = baris) (y = kosong)/cari posisi yang kosong
     static Pair<Integer, Integer> cari_posisi_kosong() {
-        int x, y;
         Pair<Integer, Integer> posisi = new Pair(0, 0);
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
                 if (kotak[i][j] == 0) {
-                    x = i;
-                    y = j;
                     posisi = new Pair(i, j);
                     return posisi;
                 }

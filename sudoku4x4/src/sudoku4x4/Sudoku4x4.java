@@ -54,9 +54,7 @@ public class Sudoku4x4 {
 
         boolean memenuhi = true;
         for (int i = 0; i < 4; i++) {
-            if (i == y) {
-                continue;
-            } else if (kotak[x][i] == nilai) {
+           if (kotak[x][i] == nilai) {
                 memenuhi = false;
                 return memenuhi;
             }
